@@ -1,5 +1,7 @@
 // 引入 axios
 import axios from 'axios'
+import 'element-plus/es/components/message/style/css'
+import { ElMessage } from "element-plus"
 
 // 创建 axios 实例
 const httpInstance = axios.create({
@@ -17,12 +19,14 @@ httpInstance.interceptors.request.use(config => {
 })
 
 // 添加响应拦截器
-httpInstance.interceptors.response.use(response => {
+httpInstance.interceptors.response.use(res =>res.data, e=> {
+  //统一错误提示
+  ElMessage({
+    tape: 'warning',
+    message: e.response.data.message
+  })
   // 对响应数据做处理
   return response.data
-}, error => {
-  // 处理响应错误
-  return Promise.reject(error)
 })
 
 // 导出 axios 实例
