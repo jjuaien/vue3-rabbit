@@ -33,13 +33,16 @@ const addCart = () => {
     cartStore.addCart({
       id: goods.value.id,
       name: goods.value.name,
-      picture: goods.value.picture,
+      picture: goods.value.mainPictures[0],
       price: goods.value.price,
       count: count.value,
       skuId: skuObj.skuId,
       attrsText: skuObj.specText,
       seleced: true
+    
     })
+    console.log(goods.value)
+    
   }
   else {
     //提示用户
