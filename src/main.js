@@ -1,8 +1,12 @@
-//引入初始化样式
-import '@/styles/common.scss';
+
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+
+// // //引入初始化样式
+// import 'element-plus/dist/index.css'
+// import '@/styles/element/index.scss'  // 先引入自定义样式
+import '@/styles/common.scss'
 
 import App from './App.vue'
 import router from './router'

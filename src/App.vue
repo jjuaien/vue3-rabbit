@@ -7,7 +7,6 @@
   <!-- 一级路由出口组件 -->
    <router-view />
    <div class="test">
-    test scss
    </div>
 </template>
 

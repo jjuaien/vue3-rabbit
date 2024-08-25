@@ -31,7 +31,6 @@ export default defineConfig({
         additionalData: `
           @use "@/styles/element/index.scss" as *;
           @use "@/styles/var.scss" as *;
-
         `,
       }
     }
