@@ -3,6 +3,7 @@ import axios from 'axios'
 import 'element-plus/es/components/message/style/css'
 import { ElMessage } from "element-plus"
 import { useUserStore } from '@/stores/user'
+import router from '@/router'
 
 // 创建 axios 实例
 const httpInstance = axios.create({
@@ -27,14 +28,22 @@ httpInstance.interceptors.request.use(config => {
 })
 
 // 添加响应拦截器
-httpInstance.interceptors.response.use(res =>res.data, e=> {
+httpInstance.interceptors.response.use(res => res.data, e => {
+  const userStore = useUserStore()
   //统一错误提示
   ElMessage({
     tape: 'warning',
     message: e.response.data.message
   })
+  //401token时效处理
+  //1、清楚本地用户数据
+  //2、跳转到登录页
+  if (e.response.status === 401) {
+    userStore.clearUserInfo()
+    router.push('/login')
+  }
   // 对响应数据做处理
-  return response.data
+  return Promise.reject(e)
 })
 
 // 导出 axios 实例
