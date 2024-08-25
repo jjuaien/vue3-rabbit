@@ -20,9 +20,19 @@ export const useCartStore = defineStore('cart', () => {
       cartList.value.push(goods)
     }
   }
+
+  //删除购物车
+  const delCart = (skuId) => {
+    //1、找到要删除项的下标值，用slice  不好写，但是可能不用遍历全部
+    //2、用filter 好写，但是要遍历全部**
+    const idx = cartList.value.findIndex((item) => skuId === item.skuId)
+    cartList.value.splice(idx, 1)
+  }
+
   return {
     cartList,
-    addCart
+    addCart,
+    delCart
   }
 }, {
   persist: true,
