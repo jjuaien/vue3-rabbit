@@ -1,5 +1,5 @@
-
-
+//fukuvb7569@sandbox.com
+//111111
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
