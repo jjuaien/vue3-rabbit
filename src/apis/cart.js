@@ -30,8 +30,10 @@ export const delCartAPI = (ids) => {
 }
 
 //合并购物车
-const mergeCartAPI = () => {
+export const mergeCartAPI = (data) => {
   return httpInstance({
-    url: ''
+    url: '/member/cart/merge',
+    method: 'POST',
+    data
   })
 }
