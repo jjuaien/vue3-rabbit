@@ -28,3 +28,10 @@ export const delCartAPI = (ids) => {
     }
   })
 }
+
+//合并购物车
+const mergeCartAPI = () => {
+  return httpInstance({
+    url: ''
+  })
+}

@@ -58,6 +58,10 @@ export const useCartStore = defineStore('cart', () => {
     }
   }
 
+  //清楚购物车
+  const clearCart = () => {
+    cartList.value = []
+  }
 
   //单选功能
   const singleCheck = (skuId, selected) => {
@@ -71,6 +75,7 @@ export const useCartStore = defineStore('cart', () => {
     //把每一项的selected都设置为当前
     cartList.value.forEach(item => item.selected = selected)
   }
+
 
   //计算
   //1、总的数量
@@ -95,7 +100,8 @@ export const useCartStore = defineStore('cart', () => {
     isAll,
     allCheck,
     selectedCount,
-    selectedPrice
+    selectedPrice,
+    clearCart
   }
 }, {
   persist: true,
